@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Место</title>
+</head>
+<body class="page">
+
+	<!--Шапка-->
+  <header class="header">
+   <a href="#"><img class="header__logo" src="./images/header__logo.svg" alt="Логотип"></a>
+  </header>
+
+  <main class="main">
+
+		<!--Профиль-->
+    <section class="profile">
+      <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватарка">
+      <div class="profile__info">
+        <div class="profile__main-info">
+          <h1 class="profile__name">Рик Санчез</h1>
+          <button type="button" class="profile__edit-button buttons"></button>
+        </div>
+        <p class="profile__description">Вабулабудабда</p>
+      </div>
+      <button type="button" class="profile__add-button buttons"></button>
+    </section>
+
+		<!--Карточки с фотографиями-->
+    <section class="cards-section">
+      <ul class="cards">
+        <li class="card">
+          <img class="card__img" src="./images/planet-bird-man.jpg" alt="Птичий мир">
+          <div class="card__items">
+            <h2 class="card__capture">Птичий мир</h2>
+            <button type="button" class="card__like-button buttons"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__img" src="./images/flupiland.jpg" alt="Флупилэнд">
+          <div class="card__items">
+            <h2 class="card__capture">Флупилэнд</h2>
+            <button type="button" class="card__like-button buttons"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__img" src="./images/sun.jpg" alt="Планета с кричащим солнцем">
+          <div class="card__items">
+            <h2 class="card__capture">Планета с кричащим солнцем</h2>
+            <button type="button" class="card__like-button buttons"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__img" src="./images/sqwonch.jpg" alt="Планета Сквончи">
+          <div class="card__items">
+            <h2 class="card__capture">Планета Сквончи</h2>
+            <button type="button" class="card__like-button buttons"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__img" src="./images/apocalips.jpg" alt="Постапокалиптическая Земля">
+          <div class="card__items">
+            <h2 class="card__capture">Постапокалиптическая Земля</h2>
+            <button type="button" class="card__like-button buttons"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__img" src="./images/unity.jpg" alt="Мир Юнити">
+          <div class="card__items">
+            <h2 class="card__capture">Мир Юнити</h2>
+            <button type="button" class="card__like-button buttons"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+	<!--Подвал-->
+  <footer class="footer">
+    <p class="footer__copyright">&copy;2021 Игорь Теплостанский</p>
+  </footer>
+
+	<!--ПопАп-->
+  <div class="popup">
+    <div class="popup__container">
+      <button type="button" class="popup__close"></button>
+      <h3 class="popup__title">Редактировать профиль</h3>
+      <form class=" popup__form" name="profile">
+        <input class="popup__input" type="text" name="name" id="popupTitle" value="">
+        <input class="popup__input" type="text" name="description" id="popupDescription" value="">
+        <button class="popup__button buttons" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+<script src="./scripts/index.js"></script>
+</body>
+</html>
