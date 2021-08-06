@@ -32,13 +32,11 @@ function onClickEditButton(){
   nameInput.value = nameProfile.textContent;
   descriptionInput.value = descriptionProfile.textContent;
 }
-
 //Закрыть ПопАп
 function onClickCloseButton(){
   //.popup - .popup_opened
   editPopup.classList.remove('popup_opened');
 }
-
 closeButton.addEventListener('click', onClickCloseButton);
 */
 
@@ -68,7 +66,7 @@ function formSubmitHandler (evt) {
   descriptionProfile.textContent = descriptionInput.value;
   //полученные текстовые данные сохраняются в переменные
   //закрытие попапа по нажатию кнопки "сохранить"
-  onClickCloseButton();
+  onClickEditButton();
 }
 
 
