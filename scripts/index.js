@@ -20,6 +20,7 @@ const descriptionInput = popupForm.querySelector('input[name="description"]');
 //определяю стили для закрытия попапа
 const closeButton = document.querySelector('.popup__close');
 
+/*
 //Открыть ПопАп
 function onClickEditButton(){
   //.popup + .popup_opened
@@ -37,6 +38,24 @@ function onClickCloseButton(){
   //.popup - .popup_opened
   editPopup.classList.remove('popup_opened');
 }
+
+closeButton.addEventListener('click', onClickCloseButton);
+*/
+
+//попап редактирования профиля
+//эксперимент открытия и закрытия попапа методом toggle(код стал короче на 4 строчки потому что не надо писать функцию для закрытия попапа,следовательно обработчики событий для закрытия и открытия попапа обращаются в одной и той же функции)
+//Открыть ПопАп
+function onClickEditButton(){
+  //.popup + .popup_opened
+  editPopup.classList.toggle('popup_opened');
+  //ввод имени input[name="name"] и input[name="description"] 
+  //со значением VALUE(значение текстовых полей) присваивается 
+  //.profile__name со свойством textContent(управляет тестовым содежимым, позволяет 
+  //получить и перезаписать текстовое содержимое элемента не трогая разметку)
+  nameInput.value = nameProfile.textContent;
+  descriptionInput.value = descriptionProfile.textContent;
+}
+
 
 //Добавить данные в профиль
 //вешаю событие отправки формы submit
@@ -60,4 +79,4 @@ popupForm.addEventListener('submit', formSubmitHandler);
 //клик по кнопке "редактирование профиля"(карандаш)
 editButton.addEventListener('click', onClickEditButton);
 //клик по кнопке "закрыть"
-closeButton.addEventListener('click', onClickCloseButton);
+closeButton.addEventListener('click', onClickEditButton);
