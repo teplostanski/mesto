@@ -31,59 +31,6 @@
 		<!--Карточки с фотографиями-->
     <section class="cards-section">
       <ul class="cards">
-				<!--Шаблон-->
-				<template id="templateForCard">
-					<li class="card">
-						<button type="button" class="card__delete-button buttons"></button>
-						<img class="card__img" src="#" alt="">
-						<div class="card__items">
-							<h2 class="card__capture"></h2>
-							<button type="button" class="card__like-button buttons"></button>
-						</div>
-					</li>
-				</template>
-        <!--<li class="card">
-          <img class="card__img" src="./images/planet-bird-man.jpg" alt="Птичий мир">
-          <div class="card__items">
-            <h2 class="card__capture">Птичий мир</h2>
-            <button type="button" class="card__like-button buttons"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__img" src="./images/flupiland.jpg" alt="Флупилэнд">
-          <div class="card__items">
-            <h2 class="card__capture">Флупилэнд</h2>
-            <button type="button" class="card__like-button buttons"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__img" src="./images/sun.jpg" alt="Планета с кричащим солнцем">
-          <div class="card__items">
-            <h2 class="card__capture">Планета с кричащим солнцем</h2>
-            <button type="button" class="card__like-button buttons"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__img" src="./images/sqwonch.jpg" alt="Планета Сквончи">
-          <div class="card__items">
-            <h2 class="card__capture">Планета Сквончи</h2>
-            <button type="button" class="card__like-button buttons"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__img" src="./images/apocalips.jpg" alt="Постапокалиптическая Земля">
-          <div class="card__items">
-            <h2 class="card__capture">Постапокалиптическая Земля</h2>
-            <button type="button" class="card__like-button buttons"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__img" src="./images/unity.jpg" alt="Мир Юнити">
-          <div class="card__items">
-            <h2 class="card__capture">Мир Юнити</h2>
-            <button type="button" class="card__like-button buttons"></button>
-          </div>
-        </li>-->
 
       </ul>
     </section>
@@ -95,8 +42,21 @@
     <p class="footer__copyright">&copy;2021 Игорь Теплостанский</p>
   </footer>
 
+	<!--Шаблон-->
+	<template id="templateForCard">
+		<li class="card">
+			<button type="button" class="card__delete-button buttons"></button>
+			<img class="card__img" src="#" alt="">
+			<div class="card__items">
+				<h2 class="card__capture"></h2>
+				<button type="button" class="card__like-button buttons"></button>
+			</div>
+		</li>
+	</template>
+
+
 	<!--ПопАп-->
-  <div class="popup">
+  <div class="popup" id="popupEditProfile">
     <div class="popup__container">
       <button type="button" class="popup__close"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
@@ -107,6 +67,28 @@
       </form>
     </div>
   </div>
+
+	<div class="popup" id="popupPlace">
+		<div class="popup__container">
+			<button type="button" class="popup__close"></button>
+			<h3 class="popup__title">Новое место</h3>
+			<form class=" popup__form" name="profile">
+				<input class="popup__input" type="text" name="place" id="popupNamePlace" placeholder="Название места" required>
+				<input class="popup__input" type="url" name="url" id="popupUrl" placeholder="Ссылка на картинку" required>
+				<button class="popup__button button" type="submit" data-popupid="popupPlace">Создать</button>
+			</form>
+		</div>
+	</div>
+
+	<div class="popup" id="popupGallery">
+		<div class="popup__gallery">
+			<button type="button" class="popup__close" data-popupid="popupGallery"></button>
+			<figure class="popup__figure">
+			<img class="popup__img-gallery" src="#" alt="">
+			<figcaption class="popup__figcaption"></figcaption>
+			</figure>
+		</div>
+	</div>
 <!--оптимизация скрипта с помощью параллельной подгрузки-->
 <script src="./scripts/index.js" defer></script>
 </body>
