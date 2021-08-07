@@ -31,7 +31,18 @@
 		<!--Карточки с фотографиями-->
     <section class="cards-section">
       <ul class="cards">
-        <li class="card">
+				<!--Шаблон-->
+				<template id="templateForCard">
+					<li class="card">
+						<button type="button" class="card__delete-button buttons"></button>
+						<img class="card__img" src="#" alt="">
+						<div class="card__items">
+							<h2 class="card__capture"></h2>
+							<button type="button" class="card__like-button buttons"></button>
+						</div>
+					</li>
+				</template>
+        <!--<li class="card">
           <img class="card__img" src="./images/planet-bird-man.jpg" alt="Птичий мир">
           <div class="card__items">
             <h2 class="card__capture">Птичий мир</h2>
@@ -72,7 +83,8 @@
             <h2 class="card__capture">Мир Юнити</h2>
             <button type="button" class="card__like-button buttons"></button>
           </div>
-        </li>
+        </li>-->
+
       </ul>
     </section>
 
@@ -95,7 +107,7 @@
       </form>
     </div>
   </div>
-// оптимизация скрипта с помощью параллельной подгрузки
+<!--оптимизация скрипта с помощью параллельной подгрузки-->
 <script src="./scripts/index.js" defer></script>
 </body>
 </html>
