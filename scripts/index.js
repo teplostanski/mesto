@@ -105,6 +105,10 @@ function firstSixCards(parametr_card) {
 		evt.target.closest('.card').remove();
 	});
 
+	cardClone.querySelector(".card__like-button").addEventListener("click", (evt) => {
+    evt.target.classList.toggle("card__like-button_active");
+  });
+
 	cardsContainer.prepend(cardClone);
 }
 

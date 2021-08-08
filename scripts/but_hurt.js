@@ -157,6 +157,11 @@ function firstSixCards(parametr_card) {
 		evt.target.closest('.card').remove();
 	});
 
+	//и туже самую магию проделываем с кнопкой лайк , только в теле целью событию будет переключать класса
+	cardClone.querySelector(".card__like-button").addEventListener("click", (evt) => {
+    evt.target.classList.toggle("card__like-button_active");
+  });
+
 	//вырываю клонированую карточку .card со всем её блядским содержимым из шаблона template и вставляю её в разметку, то есть в начало ноды .cards
 	cardsContainer.prepend(cardClone);
 }
