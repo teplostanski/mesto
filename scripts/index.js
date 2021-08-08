@@ -145,8 +145,10 @@ function firstSixCards(parametr_card) {
 	//и магии не произошло
 	//СУКА КАК ЖЕ Я НЕНАВИЖУ ДЖАВАСКPИПТ
 
+	cardCloneImage.addEventListener('click', onClickByImg);
+
 	//дальше для клонированой карточки в заголовок подгребается название картинки из массива
-	cardClone.querySelector(".card__capture").textContent = parametr_card.name;
+	cardClone.querySelector('.card__capture').textContent = parametr_card.name;
 
 	//вырываю клонированую карточку .card со всем её блядским содержимым из шаблона template и вставляю её в разметку, то есть в начало ноды .cards
 	cardsContainer.prepend(cardClone);
@@ -174,7 +176,7 @@ initialCards.forEach(firstSixCards);
 					//СУКА КАК ЖЕ Я НЕНАВИЖУ ДЖАВАСКPИПТ
 
 					//дальше для клонированой карточки в заголовок подгребается название картинки из массива
-					cardClone.querySelector(".card__capture").textContent = parametr_card.name;
+					cardClone.querySelector('.card__capture').textContent = parametr_card.name;
 
 					return cardClone;
 				}
@@ -223,6 +225,23 @@ function onClickAddButton() {
 //функция-обработчик события
 function onClickCloseButton(evt) {
   toggleClosePopups(evt.target.closest('.popup'));
+}
+
+
+//ФИНАЛЬНЫЙ ШТРИХ: ХЕРАЧИМ ГАЛЕРЕЮ
+const galleryPopup = document.getElementById('popupGallery');
+const galleryImg = document.querySelector('.popup__img-gallery');
+const galleryCapture = document.querySelector('.popup__figcaption');
+const cardCapture = document.querySelector('.card__capture');
+
+function onClickByImg (evt) {
+  const newLink = evt.target.getAttribute('src');
+  const newTxt = evt.target.getAttribute('alt');
+  galleryImg.setAttribute('src', newLink);
+  galleryImg.setAttribute('alt', newTxt);
+  galleryCapture.textContent = newTxt;
+  toggleOpenPopups(galleryPopup);
+	//ЩИКАРНО, картинка открывается по клику,но на так как хотелось бы, время писать стили.
 }
 
 //РЕАКЦИЯ НА СОБЫТИЯ
