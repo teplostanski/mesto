@@ -112,7 +112,8 @@ function formSubmitAddCardHandler(evt) {
 
   const place = {
     name: placeNameInput.value,
-    link: placeImgInput.value
+    link: placeImgInput.value,
+		alt: placeNameInput.value
   };
 
   placeNameInput.value = '';
