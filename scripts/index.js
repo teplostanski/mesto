@@ -21,25 +21,25 @@ const descriptionInput = popupEditForm.querySelector('input[name="description"]'
 //определяю стили для закрытия попапа
 const closeButtons = document.querySelectorAll('.popup__close');
 
-/*
-//Открыть ПопАп
-function onClickEditButton(){
-  //.popup + .popup_opened
-  editPopup.classList.add('popup_opened');
-  //ввод имени input[name='name'] и input[name='description']
-  //со значением VALUE(значение текстовых полей) присваивается
-  //.profile__name со свойством textContent(управляет тестовым содежимым, позволяет
-  //получить и перезаписать текстовое содержимое элемента не трогая разметку)
-  nameInput.value = nameProfile.textContent;
-  descriptionInput.value = descriptionProfile.textContent;
-}
-//Закрыть ПопАп
-function onClickCloseButton(){
-  //.popup - .popup_opened
-  editPopup.classList.remove('popup_opened');
-}
-closeButton.addEventListener('click', onClickCloseButton);
-*/
+				/*
+				//Открыть ПопАп
+				function onClickEditButton(){
+				  //.popup + .popup_opened
+				  editPopup.classList.add('popup_opened');
+				  //ввод имени input[name='name'] и input[name='description']
+				  //со значением VALUE(значение текстовых полей) присваивается
+				  //.profile__name со свойством textContent(управляет тестовым содежимым, позволяет
+				  //получить и перезаписать текстовое содержимое элемента не трогая разметку)
+				  nameInput.value = nameProfile.textContent;
+				  descriptionInput.value = descriptionProfile.textContent;
+				}
+				//Закрыть ПопАп
+				function onClickCloseButton(){
+				  //.popup - .popup_opened
+				  editPopup.classList.remove('popup_opened');
+				}
+				closeButton.addEventListener('click', onClickCloseButton);
+				*/
 
 
 //попап редактирования профиля
@@ -130,6 +130,8 @@ const initialCards = [
 const templateForCard = document.querySelector('#templateForCard');
 const cardsContainer = document.querySelector('.cards');
 
+
+
 //параметр parametr_card произвольный и неявно объявляет переменную в которой хранятся значения для link alt и name. Эти значения берутся из массива с помощью forEach и хранятся в произвольной переменной parametr_card откуда берутся и вешаются атрибутами в вёрстку
 function firstSixCards(parametr_card) {
 
@@ -155,6 +157,38 @@ initialCards.forEach(firstSixCards);
 //ЕБАТЬ НЕУЖЕЛИ КАРТОЧКИ ПОЯВИЛИСЬ, ЭТО ЛИ НЕ ЧУДО!
 //мне каждая строчка даётся с боей.
 //главное не забыть через 5 минут как писать эту хрень. А дальше Реакт, я вообще чёкнусь.
+
+
+				/*
+				//Можно перебирать первые 6 карточек не методом foeEach а циклом for...of
+				function firstSixCards(parametr_card) {
+
+					//соответственно я клонирую контент первого дочернего элемента шаблона(родителя)
+					const cardClone = templateForCard.content.firstElementChild.cloneNode(true);
+					//беру картинку
+					const cardCloneImage = cardClone.querySelector('.card__img');
+					//вешаю атрибуты
+					cardCloneImage.setAttribute('src', parametr_card.link);
+					cardCloneImage.setAttribute('alt', parametr_card.alt);
+					//и магии не произошло
+					//СУКА КАК ЖЕ Я НЕНАВИЖУ ДЖАВАСКPИПТ
+
+					//дальше для клонированой карточки в заголовок подгребается название картинки из массива
+					cardClone.querySelector(".card__capture").textContent = parametr_card.name;
+
+					return cardClone;
+				}
+
+				//Но для этого нужно создать цикл for...of
+				//где переменная явно объявлена
+				for (const parametr_card of initialCards) {
+					//где cardsContainer родительская нода и метод appendChild добавляет узел в конец списка дочерних элементов родителя
+					cardsContainer.appendChild(firstSixCards(parametr_card));
+				}
+				//и нужно вывести результат клонированной ноды(карточки) внутри функции с помощью return
+				//И ЭТОТ МЕТОД ДЕЛАЕТ КОД ДЛИННЕЕ НА 2 СТРОЧКИ
+				*/
+
 
 
 //время пилить кнопку для добавления новых карточек
@@ -209,22 +243,22 @@ addButton.addEventListener('click', onClickAddButton);
 
 
 
-/*
-	+ кнопка "добавить картинку" работает
-	+ кнопки "закрыть" работают
+				/*
+					+ кнопка "добавить картинку" работает
+					+ кнопки "закрыть" работают
 
-	+ кнопка "сохранить" на попапе редакторования профиля работает
+					+ кнопка "сохранить" на попапе редакторования профиля работает
 
-	+- кнопка "сохранить" на попапе добавления картинки работет, картинки не добавляются
+					+- кнопка "сохранить" на попапе добавления картинки работет, картинки не добавляются
 
-	СЛЕДУЮЩИЙ ШАГ
+					СЛЕДУЮЩИЙ ШАГ
 
-	- добавить попап открытия картинки по клику
-	- добавить возможность добавления картинок в галерею
+					- добавить попап открытия картинки по клику
+					- добавить возможность добавления картинок в галерею
 
-	- добавить возмржность ставить и убирать лайки
-	- добавить возможность удалять картинки
-	- добавить кнопку удаления
+					- добавить возмржность ставить и убирать лайки
+					- добавить возможность удалять картинки
+					- добавить кнопку удаления
 
-	-поправить стили
-*/
+					-поправить стили
+				*/
