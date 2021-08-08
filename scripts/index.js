@@ -101,6 +101,10 @@ function firstSixCards(parametr_card) {
 
 	cardClone.querySelector('.card__capture').textContent = parametr_card.name;
 
+	cardClone.querySelector('.card__delete-button').addEventListener('click', (evt) => {
+		evt.target.closest('.card').remove();
+	});
+
 	cardsContainer.prepend(cardClone);
 }
 

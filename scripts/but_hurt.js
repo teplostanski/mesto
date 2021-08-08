@@ -150,6 +150,13 @@ function firstSixCards(parametr_card) {
 	//дальше для клонированой карточки в заголовок подгребается название картинки из массива
 	cardClone.querySelector('.card__capture').textContent = parametr_card.name;
 
+	//МАГИЯ РАБОТЫ КНОПКИ удаления
+	//беру клонированную ноду, которая у нас li с классом card, нахожу в ней кнопку удаления и вешаю на эту кнопку слушатель с событием по клику
+	cardClone.querySelector('.card__delete-button').addEventListener('click', (evt) => {
+		// где у события цель найти ближайший родительский элемент с классом card и удалить его/то есть унопка удаляет не саму себя , а весь элемент скиска в котором находится
+		evt.target.closest('.card').remove();
+	});
+
 	//вырываю клонированую карточку .card со всем её блядским содержимым из шаблона template и вставляю её в разметку, то есть в начало ноды .cards
 	cardsContainer.prepend(cardClone);
 }
