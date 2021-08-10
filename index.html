@@ -61,8 +61,8 @@
       <button type="button" class="popup__close"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class=" popup__form" name="profile">
-        <input class="popup__input" type="text" name="name" id="popupTitle" value="">
-        <input class="popup__input" type="text" name="description" id="popupDescription" value="">
+        <input class="popup__input" type="text" name="name" id="popupTitle" placeholder="Имя" value="">
+        <input class="popup__input" type="text" name="description" id="popupDescription" placeholder="Вид деятельности" value="">
         <button class="popup__button buttons" type="submit">Сохранить</button>
       </form>
     </div>
@@ -82,7 +82,7 @@
 
 	<div class="popup" id="popupGallery">
 		<div class="popup__gallery">
-			<button type="button" class="popup__close" data-popupid="popupGallery"></button>
+			<button type="button" class="popup__close" id="popupGallery"></button>
 			<figure class="popup__figure">
 			<img class="popup__img-gallery" src="#" alt="">
 			<figcaption class="popup__figcaption" alt="">nnnn</figcaption>
@@ -90,7 +90,7 @@
 		</div>
 	</div>
 <!--оптимизация скрипта с помощью параллельной подгрузки-->
-<script src="./scripts/butthurt.js" defer></script>
-<!--<script src="./scripts/index.js" defer></script>-->
+<!--<script src="./scripts/butthurt.js" defer></script>-->
+<script src="./scripts/index.js" defer></script>
 </body>
 </html>

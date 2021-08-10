@@ -76,36 +76,50 @@ function formSubmitEditProfileHandler (evt) {
 	closePopup(popupEditProfile);
 }
 
-function firstSixCards(parametr_card) {
+// я не понимаю зачем нужны два атрибута title, imageLink, с моим кодом два атрибута работать не хотят и я не знаю как это исправить
+function createCard(title) {
 	const cardClone = templateForCard.content.firstElementChild.cloneNode(true);
 	const cardCloneImage = cardClone.querySelector('.card__img');
-	cardCloneImage.setAttribute('src', parametr_card.link);
-	cardCloneImage.setAttribute('alt', parametr_card.alt);
+	cardCloneImage.setAttribute('src', title.link);
+	cardCloneImage.setAttribute('alt', title.alt);
+
 	cardCloneImage.addEventListener('click', onClickByImg);
-	cardClone.querySelector('.card__capture').textContent = parametr_card.name;
+
+	cardClone.querySelector('.card__capture').textContent = title.name;
+
+	cardClone.querySelector('.card__like-button').addEventListener('click', (evt) => {
+		evt.target.classList.toggle('card__like-button_active');
+	});
+
 	cardClone.querySelector('.card__delete-button').addEventListener('click', (evt) => {
 		evt.target.closest('.card').remove();
 	});
-	cardClone.querySelector('.card__like-button').addEventListener('click', (evt) => {
-    evt.target.classList.toggle('card__like-button_active');
-  });
-	cardsContainer.prepend(cardClone);
+
+
+	return cardClone;
 }
-initialCards.forEach(firstSixCards);
+
+for (const card of initialCards) {
+	cardsContainer.append(createCard(card));
+}
+
 
 function formSubmitAddCardHandler(evt) {
+
   evt.preventDefault();
-  const place = {
-    name: placeNameInput.value,
-    link: placeImgInput.value,
-		alt: placeNameInput.value
+
+  const placeName = placeNameInput.value;
+  const placeImg = placeImgInput.value;
+  const data = {
+    name: placeName,
+    link: placeImg,
+    alt: placeName
   };
+	cardsContainer.prepend(createCard(data));
 
-  placeNameInput.value = '';
-  placeImgInput.value = '';
 
-  firstSixCards(place);
   closePopup(popupAddCard);
+	addCardForm.reset();
 }
 
 function onClickAddButton() {

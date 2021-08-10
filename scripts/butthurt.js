@@ -133,75 +133,74 @@ const cardsContainer = document.querySelector('.cards');
 
 
 //параметр parametr_card произвольный и неявно объявляет переменную в которой хранятся значения для link alt и name. Эти значения берутся из массива с помощью forEach и хранятся в произвольной переменной parametr_card откуда берутся и вешаются атрибутами в вёрстку
-function firstSixCards(parametr_card) {
+//function createCard(parametr_card) {
 
-	//соответственно я клонирую контент первого дочернего элемента шаблона(родителя)
-	const cardClone = templateForCard.content.firstElementChild.cloneNode(true);
-	//беру картинку
-	const cardCloneImage = cardClone.querySelector('.card__img');
-	//вешаю атрибуты
-	cardCloneImage.setAttribute('src', parametr_card.link);
-	cardCloneImage.setAttribute('alt', parametr_card.alt);
-	//и магии не произошло
-	//СУКА КАК ЖЕ Я НЕНАВИЖУ ДЖАВАСКPИПТ
+//	//соответственно я клонирую контент первого дочернего элемента шаблона(родителя)
+//	const cardClone = templateForCard.content.firstElementChild.cloneNode(true);
+//	//беру картинку
+//	const cardCloneImage = cardClone.querySelector('.card__img');
+//	//вешаю атрибуты
+//	cardCloneImage.setAttribute('src', parametr_card.link);
+//	cardCloneImage.setAttribute('alt', parametr_card.alt);
+//	//и магии не произошло
+//	//СУКА КАК ЖЕ Я НЕНАВИЖУ ДЖАВАСКPИПТ
 
-	cardCloneImage.addEventListener('click', onClickByImg);
+//	cardCloneImage.addEventListener('click', onClickByImg);
 
-	//дальше для клонированой карточки в заголовок подгребается название картинки из массива
-	cardClone.querySelector('.card__capture').textContent = parametr_card.name;
+//	//дальше для клонированой карточки в заголовок подгребается название картинки из массива
+//	cardClone.querySelector('.card__capture').textContent = parametr_card.name;
 
-	//МАГИЯ РАБОТЫ КНОПКИ удаления
-	//беру клонированную ноду, которая у нас li с классом card, нахожу в ней кнопку удаления и вешаю на эту кнопку слушатель с событием по клику
-	cardClone.querySelector('.card__delete-button').addEventListener('click', (evt) => {
-		// где у события цель найти ближайший родительский элемент с классом card и удалить его/то есть унопка удаляет не саму себя , а весь элемент скиска в котором находится
-		evt.target.closest('.card').remove();
-	});
+//	//МАГИЯ РАБОТЫ КНОПКИ удаления
+//	//беру клонированную ноду, которая у нас li с классом card, нахожу в ней кнопку удаления и вешаю на эту кнопку слушатель с событием по клику
+//	cardClone.querySelector('.card__delete-button').addEventListener('click', (evt) => {
+//		// где у события цель найти ближайший родительский элемент с классом card и удалить его/то есть унопка удаляет не саму себя , а весь элемент скиска в котором находится
+//		evt.target.closest('.card').remove();
+//	});
 
-	//и туже самую магию проделываем с кнопкой лайк , только в теле целью событию будет переключать класса
-	cardClone.querySelector('.card__like-button').addEventListener('click', (evt) => {
-    evt.target.classList.toggle('card__like-button_active');
-  });
+//	//и туже самую магию проделываем с кнопкой лайк , только в теле целью событию будет переключать класса
+//	cardClone.querySelector('.card__like-button').addEventListener('click', (evt) => {
+//    evt.target.classList.toggle('card__like-button_active');
+//  });
 
-	//вырываю клонированую карточку .card со всем её блядским содержимым из шаблона template и вставляю её в разметку, то есть в начало ноды .cards
-	cardsContainer.prepend(cardClone);
-}
+//	//вырываю клонированую карточку .card со всем её блядским содержимым из шаблона template и вставляю её в разметку, то есть в начало ноды .cards
+//	cardsContainer.prepend(cardClone);
+//}
 
 //и вишенка на торте-функция перебирает массив методом forEach, в качестве аргумента forEach принимает функцию (с)метод forEach() позволяет выполнить переданную функцию один раз для каждого элемента в массиве в порядке возрастания индекса.
-initialCards.forEach(firstSixCards);
+//initialCards.forEach(createCard);
 //ЕБАТЬ НЕУЖЕЛИ КАРТОЧКИ ПОЯВИЛИСЬ, ЭТО ЛИ НЕ ЧУДО!
 //мне каждая строчка даётся с боей.
 //главное не забыть через 5 минут как писать эту хрень. А дальше Реакт, я вообще чёкнусь.
 
 
-				/*
-				//Можно перебирать первые 6 карточек не методом foeEach а циклом for...of
-				function firstSixCards(parametr_card) {
 
-					//соответственно я клонирую контент первого дочернего элемента шаблона(родителя)
-					const cardClone = templateForCard.content.firstElementChild.cloneNode(true);
-					//беру картинку
-					const cardCloneImage = cardClone.querySelector('.card__img');
-					//вешаю атрибуты
-					cardCloneImage.setAttribute('src', parametr_card.link);
-					cardCloneImage.setAttribute('alt', parametr_card.alt);
-					//и магии не произошло
-					//СУКА КАК ЖЕ Я НЕНАВИЖУ ДЖАВАСКPИПТ
+function createCard(title) {
+	const cardClone = templateForCard.content.firstElementChild.cloneNode(true);
+	const cardCloneImage = cardClone.querySelector('.card__img');
+	cardCloneImage.setAttribute('src', title.link);
+	cardCloneImage.setAttribute('alt', title.alt);
 
-					//дальше для клонированой карточки в заголовок подгребается название картинки из массива
-					cardClone.querySelector('.card__capture').textContent = parametr_card.name;
+	cardCloneImage.addEventListener('click', onClickByImg);
 
-					return cardClone;
-				}
+	cardClone.querySelector('.card__capture').textContent = title.name;
 
-				//Но для этого нужно создать цикл for...of
-				//где переменная явно объявлена
-				for (const parametr_card of initialCards) {
-					//где cardsContainer родительская нода и метод appendChild добавляет узел в конец списка дочерних элементов родителя
-					cardsContainer.appendChild(firstSixCards(parametr_card));
-				}
-				//и нужно вывести результат клонированной ноды(карточки) внутри функции с помощью return
-				//И ЭТОТ МЕТОД ДЕЛАЕТ КОД ДЛИННЕЕ НА 2 СТРОЧКИ
-				*/
+	cardClone.querySelector('.card__like-button').addEventListener('click', (evt) => {
+		evt.target.classList.toggle('card__like-button_active');
+	});
+
+	cardClone.querySelector('.card__delete-button').addEventListener('click', (evt) => {
+		evt.target.closest('.card').remove();
+	});
+
+
+	return cardClone;
+}
+
+for (const title of initialCards) {
+	cardsContainer.append(createCard(title));
+}
+
+
 
 
 
@@ -217,17 +216,16 @@ function formSubmitAddCardHandler(evt) {
 
   evt.preventDefault();
 
-  const place = {
-    name: placeNameInput.value,
-    link: placeImgInput.value,
-		alt: placeNameInput.value
+  const placeName = placeNameInput.value;
+  const placeImg = placeImgInput.value;
+  const data = {
+    name: placeName,
+    link: placeImg,
+    alt: placeName
   };
-
-  placeNameInput.value = '';
-  placeImgInput.value = '';
-
-  firstSixCards(place);
+	cardsContainer.prepend(createCard(data));
   closePopup(popupAddCard);
+	addCardForm.reset();
 
 }
 
