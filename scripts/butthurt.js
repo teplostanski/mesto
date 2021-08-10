@@ -1,5 +1,5 @@
 //определяю попап редактирования профиля
-const editPopup = document.querySelector('#popupEditProfile');
+const popupEditProfile = document.querySelector('#popupEditProfile');
 
 //определяю кнопку редактирования профиля(значок карандаш)
 const editButton = document.querySelector('.profile__edit-button');
@@ -25,7 +25,7 @@ const closeButtons = document.querySelectorAll('.popup__close');
 				//Открыть ПопАп
 				function onClickEditButton(){
 				  //.popup + .popup_opened
-				  editPopup.classList.add('popup_opened');
+				  popupEditProfile.classList.add('popup_opened');
 				  //ввод имени input[name='name'] и input[name='description']
 				  //со значением VALUE(значение текстовых полей) присваивается
 				  //.profile__name со свойством textContent(управляет тестовым содежимым, позволяет
@@ -36,7 +36,7 @@ const closeButtons = document.querySelectorAll('.popup__close');
 				//Закрыть ПопАп
 				function onClickCloseButton(){
 				  //.popup - .popup_opened
-				  editPopup.classList.remove('popup_opened');
+				  popupEditProfile.classList.remove('popup_opened');
 				}
 				closeButton.addEventListener('click', onClickCloseButton);
 				*/
@@ -46,12 +46,12 @@ const closeButtons = document.querySelectorAll('.popup__close');
 //эксперимент открытия и закрытия попапа методом toggle(код стал короче на 4 строчки потому что не надо писать функцию для закрытия попапа,следовательно обработчики событий для закрытия и открытия попапа обращаются в одной и той же функции)
 
 //Открыть
-function toggleOpenPopups(popup) {
+function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
 
 //Закрыть
-function toggleClosePopups(popup) {
+function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
@@ -65,7 +65,7 @@ function onClickEditButton(){
   nameInput.value = nameProfile.textContent;
   descriptionInput.value = descriptionProfile.textContent;
 	//вешаю переключатель на айдишник
-	toggleOpenPopups(editPopup);
+	openPopup(popupEditProfile);
 }
 
 
@@ -79,7 +79,7 @@ function formSubmitEditProfileHandler (evt) {
   nameProfile.textContent = nameInput.value;
   descriptionProfile.textContent = descriptionInput.value;
 
-	toggleClosePopups(editPopup);
+	closePopup(popupEditProfile);
 	/*
 	//полученные текстовые данные сохраняются в переменные
   //закрытие попапа по нажатию кнопки 'сохранить'
@@ -206,11 +206,11 @@ initialCards.forEach(firstSixCards);
 
 
 //время пилить кнопку для добавления новых карточек
-const addCardPopup = document.querySelector('#popupPlace');
+const popupAddCard = document.querySelector('#popupPlace');
 const addButton = document.querySelector('.profile__add-button');
-const placeNameInput = addCardPopup.querySelector('input[name="place"]');
-const placeImgInput = addCardPopup.querySelector('input[name="url"]');
-const addCardForm = addCardPopup.querySelector('.popup__form');
+const placeNameInput = popupAddCard.querySelector('input[name="place"]');
+const placeImgInput = popupAddCard.querySelector('input[name="url"]');
+const addCardForm = popupAddCard.querySelector('.popup__form');
 
 //функция-обработчик события создания новой карточки
 function formSubmitAddCardHandler(evt) {
@@ -227,25 +227,25 @@ function formSubmitAddCardHandler(evt) {
   placeImgInput.value = '';
 
   firstSixCards(place);
-  toggleClosePopups(addCardPopup);
+  closePopup(popupAddCard);
 
 }
 
 //функция-обработчик события
 //вешаю переключать на кнопку '+'
 function onClickAddButton() {
-  toggleOpenPopups(addCardPopup);
+  openPopup(popupAddCard);
 }
 
 
 //функция-обработчик события
 function onClickCloseButton(evt) {
-  toggleClosePopups(evt.target.closest('.popup'));
+  closePopup(evt.target.closest('.popup'));
 }
 
 
 //ФИНАЛЬНЫЙ ШТРИХ: ХЕРАЧИМ ГАЛЕРЕЮ
-const galleryPopup = document.getElementById('popupGallery');
+const popupGallery = document.getElementById('popupGallery');
 const galleryImg = document.querySelector('.popup__img-gallery');
 const galleryCapture = document.querySelector('.popup__figcaption');
 
@@ -255,7 +255,7 @@ function onClickByImg (evt) {
   galleryImg.setAttribute('src', newLink);
   galleryImg.setAttribute('alt', newTxt);
   galleryCapture.textContent = newTxt;
-  toggleOpenPopups(galleryPopup);
+  openPopup(popupGallery);
 	//ЩИКАРНО, картинка открывается по клику,но на так как хотелось бы, время писать стили.
 }
 
