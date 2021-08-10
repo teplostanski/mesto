@@ -122,6 +122,15 @@ function formSubmitAddCardHandler(evt) {
 	addCardForm.reset();
 }
 
+document.body.addEventListener('click', (evt) => {
+  if (evt.target.className === 'popup__close') {
+    const popup = evt.target.closest('.popup');
+    closePopup(popup);
+    addCardForm.reset();
+    }
+  }
+);
+
 function onClickAddButton() {
   openPopup(popupAddCard);
 }
