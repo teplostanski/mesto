@@ -90,39 +90,39 @@ function formSubmitEditProfileHandler (evt) {
 
 const initialCards = [
   {
-    name: "Птичий мир",
-    link: "./images/planet-bird-man.jpg",
-    alt: "Птичий мир"
+    name: 'Птичий мир',
+    link: './images/planet-bird-man.jpg',
+    alt: 'Птичий мир'
   },
 
   {
-    name: "Флупилэнд",
-    link: "./images/flupiland.jpg",
-    alt: "Флупилэнд"
+    name: 'Флупилэнд',
+    link: './images/flupiland.jpg',
+    alt: 'Флупилэнд'
   },
 
   {
-    name: "Планета с кричащим солнцем",
-    link: "./images/sun.jpg",
-    alt: "Планета с кричащим солнцем"
+    name: 'Планета с кричащим солнцем',
+    link: './images/sun.jpg',
+    alt: 'Планета с кричащим солнцем'
   },
 
   {
-    name: "Планета Сквончи",
-    link: "./images/sqwonch.jpg",
-    alt: "Планета Сквончи"
+    name: 'Планета Сквончи',
+    link: './images/sqwonch.jpg',
+    alt: 'Планета Сквончи'
   },
 
   {
-    name: "Постапокалиптическая Земля",
-    link: "./images/apocalips.jpg",
-    alt: "Постапокалиптическая Земля"
+    name: 'Постапокалиптическая Земля',
+    link: './images/apocalips.jpg',
+    alt: 'Постапокалиптическая Земля'
   },
 
   {
-    name: "Мир Юнити",
-    link: "./images/unity.jpg",
-    alt: "Мир Юнити"
+    name: 'Мир Юнити',
+    link: './images/unity.jpg',
+    alt: 'Мир Юнити'
   },
 ];
 
@@ -158,8 +158,8 @@ function firstSixCards(parametr_card) {
 	});
 
 	//и туже самую магию проделываем с кнопкой лайк , только в теле целью событию будет переключать класса
-	cardClone.querySelector(".card__like-button").addEventListener("click", (evt) => {
-    evt.target.classList.toggle("card__like-button_active");
+	cardClone.querySelector('.card__like-button').addEventListener('click', (evt) => {
+    evt.target.classList.toggle('card__like-button_active');
   });
 
 	//вырываю клонированую карточку .card со всем её блядским содержимым из шаблона template и вставляю её в разметку, то есть в начало ноды .cards
@@ -268,7 +268,7 @@ popupEditForm.addEventListener('submit', formSubmitEditProfileHandler);
 //клик по кнопке 'редактирование профиля'(карандаш)
 editButton.addEventListener('click', onClickEditButton);
 
-addCardForm.addEventListener("submit", formSubmitAddCardHandler);
+addCardForm.addEventListener('submit', formSubmitAddCardHandler);
 
 //клик по кнопке 'закрыть'
 					//ДЛИННАЯ ЗАПИСЬ
@@ -282,4 +282,4 @@ addButton.addEventListener('click', onClickAddButton);
 
 
 
-//я пиздец молодец, теперь надо пивести код в читабельный вид и готово
+//я пиздец молодец, теперь надо привести код в читабельный вид и готово

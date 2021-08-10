@@ -19,39 +19,39 @@ const cardsContainer = document.querySelector('.cards');
 
 const initialCards = [
   {
-    name: "Птичий мир",
-    link: "./images/planet-bird-man.jpg",
-    alt: "Птичий мир"
+    name: 'Птичий мир',
+    link: './images/planet-bird-man.jpg',
+    alt: 'Птичий мир'
   },
 
   {
-    name: "Флупилэнд",
-    link: "./images/flupiland.jpg",
-    alt: "Флупилэнд"
+    name: 'Флупилэнд',
+    link: './images/flupiland.jpg',
+    alt: 'Флупилэнд'
   },
 
   {
-    name: "Планета с кричащим солнцем",
-    link: "./images/sun.jpg",
-    alt: "Планета с кричащим солнцем"
+    name: 'Планета с кричащим солнцем',
+    link: './images/sun.jpg',
+    alt: 'Планета с кричащим солнцем'
   },
 
   {
-    name: "Планета Сквончи",
-    link: "./images/sqwonch.jpg",
-    alt: "Планета Сквончи"
+    name: 'Планета Сквончи',
+    link: './images/sqwonch.jpg',
+    alt: 'Планета Сквончи'
   },
 
   {
-    name: "Постапокалиптическая Земля",
-    link: "./images/apocalips.jpg",
-    alt: "Постапокалиптическая Земля"
+    name: 'Постапокалиптическая Земля',
+    link: './images/apocalips.jpg',
+    alt: 'Постапокалиптическая Земля'
   },
 
   {
-    name: "Мир Юнити",
-    link: "./images/unity.jpg",
-    alt: "Мир Юнити"
+    name: 'Мир Юнити',
+    link: './images/unity.jpg',
+    alt: 'Мир Юнити'
   },
 ];
 
@@ -86,8 +86,8 @@ function firstSixCards(parametr_card) {
 	cardClone.querySelector('.card__delete-button').addEventListener('click', (evt) => {
 		evt.target.closest('.card').remove();
 	});
-	cardClone.querySelector(".card__like-button").addEventListener("click", (evt) => {
-    evt.target.classList.toggle("card__like-button_active");
+	cardClone.querySelector('.card__like-button').addEventListener('click', (evt) => {
+    evt.target.classList.toggle('card__like-button_active');
   });
 	cardsContainer.prepend(cardClone);
 }
@@ -127,6 +127,6 @@ function onClickByImg (evt) {
 
 popupEditForm.addEventListener('submit', formSubmitEditProfileHandler);
 editButton.addEventListener('click', onClickEditButton);
-addCardForm.addEventListener("submit", formSubmitAddCardHandler);
+addCardForm.addEventListener('submit', formSubmitAddCardHandler);
 closeButtons.forEach(button => button.addEventListener('click', onClickCloseButton));
 addButton.addEventListener('click', onClickAddButton);
