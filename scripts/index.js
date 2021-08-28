@@ -1,3 +1,6 @@
+const popups = document.querySelectorAll(".popup");
+const popupContainers = document.querySelectorAll(".popup__container");
+const popupGalleryContainer = document.querySelector(".popup__gallery");
 const popupEditProfile = document.querySelector('#popupEditProfile');
 const editButton = document.querySelector('.profile__edit-button');
 const nameProfile = document.querySelector('.profile__name');
@@ -19,10 +22,12 @@ const cardsContainer = document.querySelector('.cards');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+	document.addEventListener('keydown', onKeydown);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+	document.removeEventListener('keydown', onKeydown);
 }
 
 function onClickEditButton(){
@@ -116,6 +121,32 @@ function onClickByImg (evt) {
   galleryCapture.textContent = newTxt;
   openPopup(popupGallery);
 }
+
+//закрытие попапов по клавише escape
+function onKeydown(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    if (openedPopup) {
+      closePopup(openedPopup);
+    }
+  }
+};
+
+function onClickPopupContainer(evt) {
+  evt.stopPropagation();
+}
+
+//закрытие попапа кликом по оверлею
+popups.forEach((popup) => {
+  popup.addEventListener("click", onClickCloseButton)
+});
+
+popupContainers.forEach((popupContainer) => {
+  popupContainer.addEventListener("click", onClickPopupContainer);
+});
+
+popupGalleryContainer.addEventListener("click", onClickPopupContainer);
+
 
 popupEditForm.addEventListener('submit', formSubmitEditProfileHandler);
 editButton.addEventListener('click', onClickEditButton);
