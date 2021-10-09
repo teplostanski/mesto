@@ -43,7 +43,6 @@ function formSubmitEditProfileHandler (evt) {
 	closePopup(popupEditProfile);
 }
 
-// я не понимаю зачем нужны два атрибута title, imageLink, с моим кодом два атрибута работать не хотят и я не знаю как это исправить
 function createCard(title) {
 	const cardClone = templateForCard.content.firstElementChild.cloneNode(true);
 	const cardCloneImage = cardClone.querySelector('.card__img');
@@ -100,7 +99,7 @@ function formSubmitAddCardHandler(evt) {
 
 
 
-
+// Сбросить поля формы при закрытии
 function onClickAddButton() {
   openPopup(popupAddCard);
 	addCardForm.reset();
@@ -151,5 +150,7 @@ popupGalleryContainer.addEventListener("click", onClickPopupContainer);
 popupEditForm.addEventListener('submit', formSubmitEditProfileHandler);
 editButton.addEventListener('click', onClickEditButton);
 addCardForm.addEventListener('submit', formSubmitAddCardHandler);
+
 closeButtons.forEach(button => button.addEventListener('click', onClickCloseButton));
+
 addButton.addEventListener('click', onClickAddButton);
