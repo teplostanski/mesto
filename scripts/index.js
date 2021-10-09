@@ -53,9 +53,7 @@ function createCard(title) {
 
 	cardClone.querySelector('.card__capture').textContent = title.name;
 
-	cardClone.querySelector('.card__like-button').addEventListener('click', (evt) => {
-		evt.target.classList.toggle('card__like-button_active');
-	});
+
 
 	cardClone.querySelector('.card__delete-button').addEventListener('click', (evt) => {
 		evt.target.closest('.card').remove();
@@ -154,3 +152,9 @@ addCardForm.addEventListener('submit', formSubmitAddCardHandler);
 closeButtons.forEach(button => button.addEventListener('click', onClickCloseButton));
 
 addButton.addEventListener('click', onClickAddButton);
+
+cardsContainer.addEventListener('click', (evt) => {
+	if (evt.target.classList.contains('card__like-button')) {
+		evt.target.classList.toggle('card__like-button_active');
+	}
+});
