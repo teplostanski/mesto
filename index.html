@@ -1,156 +1,109 @@
-const popups = document.querySelectorAll(".popup");
-const popupContainers = document.querySelectorAll(".popup__container");
-const popupGalleryContainer = document.querySelector(".popup__gallery");
-const popupEditProfile = document.querySelector('#popupEditProfile');
-const editButton = document.querySelector('.profile__edit-button');
-const nameProfile = document.querySelector('.profile__name');
-const descriptionProfile = document.querySelector('.profile__description');
-const popupEditForm = document.querySelector('.popup__form');
-const nameInput = popupEditForm.querySelector('input[name="name"]');
-const descriptionInput = popupEditForm.querySelector('input[name="description"]');
-const closeButtons = document.querySelectorAll('.popup__close');
-const popupAddCard = document.querySelector('#popupPlace');
-const addButton = document.querySelector('.profile__add-button');
-const placeNameInput = popupAddCard.querySelector('input[name="place"]');
-const placeImgInput = popupAddCard.querySelector('input[name="url"]');
-const addCardForm = popupAddCard.querySelector('.popup__form');
-const popupGallery = document.getElementById('popupGallery');
-const galleryImg = document.querySelector('.popup__img-gallery');
-const galleryCapture = document.querySelector('.popup__figcaption');
-const templateForCard = document.querySelector('#templateForCard');
-const cardsContainer = document.querySelector('.cards');
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Место</title>
+</head>
+<body class="page">
 
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-	document.addEventListener('keydown', onKeydown);
-}
+	<!--Шапка-->
+  <header class="header">
+   <a href="#"><img class="header__logo" src="./images/header__logo.svg" alt="Логотип"></a>
+  </header>
 
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-	document.removeEventListener('keydown', onKeydown);
-}
+  <main class="main">
 
-function onClickEditButton(){
-  nameInput.value = nameProfile.textContent;
-  descriptionInput.value = descriptionProfile.textContent;
-	openPopup(popupEditProfile);
-}
+		<!--Профиль-->
+    <section class="profile">
+      <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватарка">
+      <div class="profile__info">
+        <div class="profile__main-info">
+          <h1 class="profile__name">Рик Санчез</h1>
+          <button type="button" class="profile__edit-button buttons"></button>
+        </div>
+        <p class="profile__description">Вабулабудабда</p>
+      </div>
+      <button type="button" class="profile__add-button buttons"></button>
+    </section>
 
-function formSubmitEditProfileHandler (evt) {
-  evt.preventDefault();
-  nameProfile.textContent = nameInput.value;
-  descriptionProfile.textContent = descriptionInput.value;
-	closePopup(popupEditProfile);
-}
+		<!--Карточки с фотографиями-->
+    <section class="cards-section">
+      <ul class="cards">
 
-function createCard(title) {
-	const cardClone = templateForCard.content.firstElementChild.cloneNode(true);
-	const cardCloneImage = cardClone.querySelector('.card__img');
-	cardCloneImage.setAttribute('src', title.link);
-	cardCloneImage.setAttribute('alt', title.alt);
+      </ul>
+    </section>
 
-	cardCloneImage.addEventListener('click', onClickByImg);
+  </main>
 
-	cardClone.querySelector('.card__capture').textContent = title.name;
+	<!--Подвал-->
+  <footer class="footer">
+    <p class="footer__copyright">&copy;2021 r0bomurlok</p>
+  </footer>
 
-	cardClone.querySelector('.card__like-button').addEventListener('click', (evt) => {
-		evt.target.classList.toggle('card__like-button_active');
-	});
-
-	cardClone.querySelector('.card__delete-button').addEventListener('click', (evt) => {
-		evt.target.closest('.card').remove();
-	});
+	<!--Шаблон-->
+	<template id="templateForCard">
+		<li class="card">
+			<button type="button" class="card__delete-button buttons"></button>
+			<img class="card__img" src="#" alt="">
+			<div class="card__items">
+				<h2 class="card__capture"></h2>
+				<button type="button" class="card__like-button buttons"></button>
+			</div>
+		</li>
+	</template>
 
 
-	return cardClone;
-}
+	<!--ПопАп-->
+  <div class="popup" id="popupEditProfile">
+    <div class="popup__container">
+      <button type="button" class="popup__close"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class=" popup__form" name="profile">
+				<label>
+					<input class="popup__input" type="text" name="name" id="popupTitle" placeholder="Имя" value=" " required maxlength="40" minlength="2">
+					<span id="popupTitle-error" class="popup__error-message"></span>
+				</label>
+				<label>
+					<input class="popup__input" type="text" name="description" id="popupDescription" placeholder="О себе" value=" " required maxlength="200" minlength="2">
 
-for (const card of initialCards) {
-	cardsContainer.append(createCard(card));
-}
+					<span id="popupDescription-error" class="popup__error-message"></span>
+				</label>
+        <button class="popup__button button" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
 
+	<div class="popup" id="popupPlace">
+		<div class="popup__container">
+			<button type="button" class="popup__close"></button>
+			<h3 class="popup__title">Новое место</h3>
+			<form class="popup__form" name="addCard">
+				<input class="popup__input" type="text" name="place" id="popupNamePlace" placeholder="Название места" required maxlength="30" minlength="2">
+				<span class="popup__error-message popup-place-name-error"></span>
+				<input class="popup__input" type="url" name="url" id="popupUrl" placeholder="Ссылка на картинку" required>
+				<span class="popup__error-message popup-place-url-error"></span>
+				<button class="popup__button button" type="submit" data-popupid="popupPlace">Создать</button>
+			</form>
+		</div>
+	</div>
 
-function formSubmitAddCardHandler(evt) {
+	<div class="popup" id="popupGallery">
+		<div class="popup__gallery">
+			<button type="button" class="popup__close" id="popupGallery"></button>
+			<figure class="popup__figure">
+			<img class="popup__img-gallery" src="#" alt="">
+			<figcaption class="popup__figcaption" alt="">nnnn</figcaption>
+			</figure>
+		</div>
+	</div>
+<!--оптимизация скрипта с помощью параллельной подгрузки-->
+<!--<script src="./scripts/butthurt.js" defer></script>-->
+<script src="./scripts/initial-cards.js" defer></script>
+<script src="./scripts/cards.js" defer></script>
+<script src="./scripts/validation.js" defer></script>
+<script src="./scripts/index.js" defer></script>
 
-  evt.preventDefault();
-
-  const placeName = placeNameInput.value;
-  const placeImg = placeImgInput.value;
-  const data = {
-    name: placeName,
-    link: placeImg,
-    alt: placeName
-  };
-	cardsContainer.prepend(createCard(data));
-
-
-  closePopup(popupAddCard);
-	addCardForm.reset();
-}
-
-//document.body.addEventListener('click', (evt) => {
-//  if (evt.target.className === 'popup__close') {
-//    const popup = evt.target.closest('.popup');
-//    closePopup(popup);
-//    addCardForm.reset();
-//    }
-//  }
-//);
-
-
-
-// Сбросить поля формы при закрытии
-function onClickAddButton() {
-  openPopup(popupAddCard);
-	addCardForm.reset();
-}
-
-
-
-
-function onClickCloseButton(evt) {
-  closePopup(evt.target.closest('.popup'));
-}
-
-function onClickByImg (evt) {
-  const newLink = evt.target.getAttribute('src');
-  const newTxt = evt.target.getAttribute('alt');
-  galleryImg.setAttribute('src', newLink);
-  galleryImg.setAttribute('alt', newTxt);
-  galleryCapture.textContent = newTxt;
-  openPopup(popupGallery);
-}
-
-//закрытие попапов по клавише escape
-function onKeydown(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_opened');
-    if (openedPopup) {
-      closePopup(openedPopup);
-    }
-  }
-};
-
-function onClickPopupContainer(evt) {
-  evt.stopPropagation();
-}
-
-//закрытие попапа кликом по оверлею
-popups.forEach((popup) => {
-  popup.addEventListener("click", onClickCloseButton)
-});
-
-popupContainers.forEach((popupContainer) => {
-  popupContainer.addEventListener("click", onClickPopupContainer);
-});
-
-popupGalleryContainer.addEventListener("click", onClickPopupContainer);
-
-
-popupEditForm.addEventListener('submit', formSubmitEditProfileHandler);
-editButton.addEventListener('click', onClickEditButton);
-addCardForm.addEventListener('submit', formSubmitAddCardHandler);
-
-closeButtons.forEach(button => button.addEventListener('click', onClickCloseButton));
-
-addButton.addEventListener('click', onClickAddButton);
+</body>
+</html>
