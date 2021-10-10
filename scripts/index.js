@@ -158,5 +158,3 @@ cardsContainer.addEventListener('click', (evt) => {
 		evt.target.classList.toggle('card__like-button_active');
 	}
 });
-
-
