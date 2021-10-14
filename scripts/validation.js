@@ -1,10 +1,3 @@
-/*
-
-3. текст ошибки не сбрасывается
-
-*/
-
-
 //функция отображения ошибки
 function showInputError(formElement, inputElement, errorMessage, elem) {
 	const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
