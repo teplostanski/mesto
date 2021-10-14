@@ -61,14 +61,10 @@
       <button type="button" class="popup__close"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form" name="profile" novalidate>
-				<label>
 					<input class="popup__input" type="text" name="name" id="popup-profile-title" placeholder="Имя" value=" " required maxlength="40" minlength="2">
 					<span class="popup__error-message popup-profile-title-error"></span>
-				</label>
-				<label>
 					<input class="popup__input" type="text" name="description" id="popup-profile-description" placeholder="О себе" value=" " required maxlength="200" minlength="2">
 					<span class="popup__error-message popup-profile-description-error"></span>
-				</label>
         <button class="popup__button button" type="submit">Сохранить</button>
       </form>
     </div>
@@ -79,15 +75,11 @@
 			<button type="button" class="popup__close"></button>
 			<h3 class="popup__title">Новое место</h3>
 			<form class="popup__form" name="addCard" novalidate>
-				<label>
 					<input class="popup__input" type="text" name="place" id="popup-place-name" placeholder="Название места" required maxlength="30" minlength="2">
 					<span class="popup__error-message popup-place-name-error"></span>
-				</label>
-				<label>
 					<input class="popup__input" type="url" name="url" id="popup-place-url" placeholder="Ссылка на картинку" required>
 					<span class="popup__error-message popup-place-url-error"></span>
-				</label>
-				<button class="popup__button button" type="submit" data-popupid="popupPlace">Создать</button>
+				<button class="popup__button button" type="submit" id="popupPlace">Создать</button>
 			</form>
 		</div>
 	</div>

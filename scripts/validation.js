@@ -1,9 +1,8 @@
 /*
 
-1. кнопка при открытии попапов активна
-2. в попапах плывут стили
 3. текст ошибки не сбрасывается
 4. мусор в коде
+5. пустые поля можно сохранить и отправить submit
 
 */
 
@@ -40,8 +39,8 @@ function setEventListeners(formElement, elem) {
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
       checkInputValidity(formElement, inputElement, elem);
-      toggleSubmitButton(inputList, submitButton, elem);
     });
+		toggleSubmitButton(inputList, submitButton, elem);
   });
 }
 
@@ -75,9 +74,11 @@ function InvalidInput(inputList) {
 function toggleSubmitButton(inputList, submitButton, elem) {
   if (InvalidInput(inputList)) {
     submitButton.classList.add(elem.inactiveButtonClass);
-    submitButton.setAttribute('disabled', true);
+		submitButton.setAttribute('disabled', 'disabled');
   } else {
     submitButton.classList.remove(elem.inactiveButtonClass);
-    submitButton.removeAttribute('disabled');
+  	submitButton.removeAttribute('disabled');
   }
 }
+
+
