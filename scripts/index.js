@@ -81,7 +81,6 @@ function formSubmitAddCardHandler(evt) {
 function onClickAddButton() {
   openPopup(popupAddCard);
 	addCardForm.reset();
-	setInitialFormState(popupAddCard);
 }
 
 
