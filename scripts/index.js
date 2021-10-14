@@ -48,18 +48,11 @@ function createCard(title) {
 	const cardCloneImage = cardClone.querySelector('.card__img');
 	cardCloneImage.setAttribute('src', title.link);
 	cardCloneImage.setAttribute('alt', title.alt);
-
 	cardCloneImage.addEventListener('click', onClickByImg);
-
 	cardClone.querySelector('.card__capture').textContent = title.name;
-
-
-
 	cardClone.querySelector('.card__delete-button').addEventListener('click', (evt) => {
 		evt.target.closest('.card').remove();
 	});
-
-
 	return cardClone;
 }
 
@@ -85,17 +78,6 @@ function formSubmitAddCardHandler(evt) {
   closePopup(popupAddCard);
 	addCardForm.reset();
 }
-
-//document.body.addEventListener('click', (evt) => {
-//  if (evt.target.className === 'popup__close') {
-//    const popup = evt.target.closest('.popup');
-//    closePopup(popup);
-//    addCardForm.reset();
-//    }
-//  }
-//);
-
-
 
 // Сбросить поля формы при закрытии
 function onClickAddButton() {
@@ -143,16 +125,11 @@ popupContainers.forEach((popupContainer) => {
 });
 
 popupGalleryContainer.addEventListener("click", onClickPopupContainer);
-
-
 popupEditForm.addEventListener('submit', formSubmitEditProfileHandler);
 editButton.addEventListener('click', onClickEditButton);
 addCardForm.addEventListener('submit', formSubmitAddCardHandler);
-
 closeButtons.forEach(button => button.addEventListener('click', onClickCloseButton));
-
 addButton.addEventListener('click', onClickAddButton);
-
 cardsContainer.addEventListener('click', (evt) => {
 	if (evt.target.classList.contains('card__like-button')) {
 		evt.target.classList.toggle('card__like-button_active');
