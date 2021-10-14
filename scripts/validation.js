@@ -1,8 +1,6 @@
 /*
 
 3. текст ошибки не сбрасывается
-4. мусор в коде
-5. пустые поля можно сохранить и отправить submit
 
 */
 
@@ -37,10 +35,13 @@ function setEventListeners(formElement, elem) {
   const inputList = Array.from(formElement.querySelectorAll(elem.inputSelector)); //inputList — массив из всех элементов с классом popup__input
   const submitButton = formElement.querySelector(elem.submitButtonSelector);
   inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', function () {
-      checkInputValidity(formElement, inputElement, elem);
-    });
+  inputElement.addEventListener('input', function () {
+    checkInputValidity(formElement, inputElement, elem);
 		toggleSubmitButton(inputList, submitButton, elem);
+    });
+		formElement.addEventListener('reset', () => {
+      toggleSubmitButton(inputList, submitButton, elem);
+    })
   });
 }
 
@@ -74,7 +75,7 @@ function InvalidInput(inputList) {
 function toggleSubmitButton(inputList, submitButton, elem) {
   if (InvalidInput(inputList)) {
     submitButton.classList.add(elem.inactiveButtonClass);
-		submitButton.setAttribute('disabled', 'disabled');
+		submitButton.setAttribute('disabled', true);
   } else {
     submitButton.classList.remove(elem.inactiveButtonClass);
   	submitButton.removeAttribute('disabled');

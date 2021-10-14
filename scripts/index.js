@@ -73,8 +73,6 @@ function formSubmitAddCardHandler(evt) {
     alt: placeName
   };
 	cardsContainer.prepend(createCard(data));
-
-
   closePopup(popupAddCard);
 	addCardForm.reset();
 }
@@ -83,6 +81,7 @@ function formSubmitAddCardHandler(evt) {
 function onClickAddButton() {
   openPopup(popupAddCard);
 	addCardForm.reset();
+	setInitialFormState(popupAddCard);
 }
 
 
