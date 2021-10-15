@@ -61,7 +61,7 @@ enableValidation({
 });
 
 //функция проверки полей формы
-function InvalidInput(inputList) {
+function isInvalidInput(inputList) {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
