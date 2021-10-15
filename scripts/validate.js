@@ -31,12 +31,14 @@ function setEventListeners(formElement, elem) {
   inputElement.addEventListener('input', function () {
     checkInputValidity(formElement, inputElement, elem);
 		toggleSubmitButton(inputList, submitButton, elem);
-
     });
-
-      toggleSubmitButton(inputList, submitButton, elem);
-    
   });
+	formElement.addEventListener('reset', () => {
+		inputList.forEach((inputElement) => {
+      hideInputError(formElement, inputElement, elem)
+		})
+		toggleSubmitButton(inputList, submitButton, elem);
+	})
 }
 
 
