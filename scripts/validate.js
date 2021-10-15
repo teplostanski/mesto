@@ -69,7 +69,7 @@ function isInvalidInput(inputList) {
 
 //функция изменения состояния кнопки
 function toggleSubmitButton(inputList, submitButton, elem) {
-  if (InvalidInput(inputList)) {
+  if (isInvalidInput(inputList)) {
     submitButton.classList.add(elem.inactiveButtonClass);
 		submitButton.setAttribute('disabled', true);
   } else {
