@@ -43,36 +43,9 @@ function formSubmitEditProfileHandler (evt) {
 	closePopup(popupEditProfile);
 }
 
-function createCard(title) {
-	const cardClone = templateForCard.content.firstElementChild.cloneNode(true);
-	const cardCloneImage = cardClone.querySelector('.card__img');
-	cardCloneImage.setAttribute('src', title.link);
-	cardCloneImage.setAttribute('alt', title.alt);
-	cardCloneImage.addEventListener('click', onClickByImg);
-	cardClone.querySelector('.card__capture').textContent = title.name;
-	cardClone.querySelector('.card__delete-button').addEventListener('click', (evt) => {
-		evt.target.closest('.card').remove();
-	});
-
-	//Искренне не понимаю зачем обработчик лайков нужно тоже навешивать при создании карточки
-	//И я также искренне буду признателен если Вы будете объяснять ЗАЧЕМ именно нужно вносить
-	//то или иное исправление , а не просто: "Это нужно исправить потому что - потому что"
-	//я не спорю, я новичок и уверен что у Вас опыта куда больше чем у меня , но я не понимаю зачем.
-	//Может быть это исправление нужно чтобы улучшить функциональность? Нет
-	//Может быть это исправление нужно для будушего масштабирования? Нет
-	//Это просто дублирование кода! Зачем?
-	cardClone.querySelector(".card__like-button").addEventListener("click", (evt) => {
-
-    evt.target.classList.toggle("card__like-button_active");
-
-  });
-	return cardClone;
-}
-
 for (const card of initialCards) {
-	cardsContainer.append(createCard(card));
+  cardsContainer.appendChild(createCard(card));
 }
-
 
 function formSubmitAddCardHandler(evt) {
 
@@ -87,17 +60,20 @@ function formSubmitAddCardHandler(evt) {
   };
 	cardsContainer.prepend(createCard(data));
   closePopup(popupAddCard);
-	addCardForm.reset(); //Зачем после этого деактивировать кнопку сабмита, если этим занимается другая функция и она прекрасно с этим справляется
+	addCardForm.reset();
 }
+
+// Создать карточки
+function createCard (card) {
+  return (new Card(card,  onClickByImg, '#templateForCard')).createCardNode()
+}
+
 
 // Сбросить поля формы при закрытии
 function onClickAddButton() {
   openPopup(popupAddCard);
 	addCardForm.reset();
 }
-
-
-
 
 function onClickCloseButton(evt) {
   closePopup(evt.target.closest('.popup'));
@@ -141,8 +117,3 @@ editButton.addEventListener('click', onClickEditButton);
 addCardForm.addEventListener('submit', formSubmitAddCardHandler);
 closeButtons.forEach(button => button.addEventListener('click', onClickCloseButton));
 addButton.addEventListener('click', onClickAddButton);
-//cardsContainer.addEventListener('click', (evt) => {
-//	if (evt.target.classList.contains('card__like-button')) {
-//		evt.target.classList.toggle('card__like-button_active');
-//	}
-//});
