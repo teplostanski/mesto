@@ -1,4 +1,4 @@
-const initialCards = [
+export const initialCards = [
   {
     name: 'Птичий мир',
     link: './images/planet-bird-man.jpg',

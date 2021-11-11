@@ -1,3 +1,8 @@
+import {Card} from './Card.js';
+import { FormValidator, validationConfig } from './FormValidator.js';
+
+export {onClickByImg};
+
 const popups = document.querySelectorAll(".popup");
 const popupContainers = document.querySelectorAll(".popup__container");
 const popupGalleryContainer = document.querySelector(".popup__gallery");
@@ -19,6 +24,8 @@ const galleryImg = document.querySelector('.popup__img-gallery');
 const galleryCapture = document.querySelector('.popup__figcaption');
 const templateForCard = document.querySelector('#templateForCard');
 const cardsContainer = document.querySelector('.cards');
+
+import {initialCards} from './initial-cards.js'
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -110,6 +117,12 @@ popups.forEach((popup) => {
 popupContainers.forEach((popupContainer) => {
   popupContainer.addEventListener("click", onClickPopupContainer);
 });
+
+//валидатор форм
+const profileFormValidator = new FormValidator(validationConfig, popupEditForm);
+profileFormValidator.enableValidation();
+const cardFormValidator = new FormValidator(validationConfig, addCardForm);
+cardFormValidator.enableValidation();
 
 popupGalleryContainer.addEventListener("click", onClickPopupContainer);
 popupEditForm.addEventListener('submit', formSubmitEditProfileHandler);

@@ -1,4 +1,6 @@
-class Card {
+import {onClickByImg} from './index.js'
+
+export class Card {
   constructor(card, onClickByImg, templateSelector) {
     this.card = card;
     this.templateSelector = templateSelector;
