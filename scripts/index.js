@@ -1,7 +1,7 @@
 import {Card} from './Card.js';
-import { FormValidator, validationConfig } from './FormValidator.js';
+import { FormValidator } from './FormValidator.js';
 
-export {onClickByImg};
+//export {onClickByImg, validationConfig};
 
 const popups = document.querySelectorAll(".popup");
 const popupContainers = document.querySelectorAll(".popup__container");
@@ -22,8 +22,19 @@ const addCardForm = popupAddCard.querySelector('.popup__form');
 const popupGallery = document.getElementById('popupGallery');
 const galleryImg = document.querySelector('.popup__img-gallery');
 const galleryCapture = document.querySelector('.popup__figcaption');
-const templateForCard = document.querySelector('#templateForCard');
+//const templateForCard = document.querySelector('#templateForCard');
 const cardsContainer = document.querySelector('.cards');
+
+//объект настроек с селекторами и классами элементов, используемых при валидации
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_error',
+  errorClass: 'popup__error-message_active'
+};
+
 
 import {initialCards} from './initial-cards.js'
 
@@ -72,7 +83,7 @@ function formSubmitAddCardHandler(evt) {
 
 // Создать карточки
 function createCard (card) {
-  return (new Card(card,  onClickByImg, '#templateForCard')).createCardNode()
+  return (new Card(card,  onClickByImg, '.templateForCard')).createCardNode()
 }
 
 
@@ -86,14 +97,13 @@ function onClickCloseButton(evt) {
   closePopup(evt.target.closest('.popup'));
 }
 
-function onClickByImg (evt) {
-  const newLink = evt.target.getAttribute('src');
-  const newTxt = evt.target.getAttribute('alt');
-  galleryImg.setAttribute('src', newLink);
-  galleryImg.setAttribute('alt', newTxt);
-  galleryCapture.textContent = newTxt;
+function onClickByImg(link, name) {
+  galleryImg.setAttribute('src', link);
+  galleryImg.setAttribute('alt', name);
+  galleryCapture.textContent = name;
   openPopup(popupGallery);
 }
+
 
 //закрытие попапов по клавише escape
 function onKeydown(evt) {

@@ -1,12 +1,4 @@
-//объект настроек с селекторами и классами элементов, используемых при валидации
-const validationConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_error',
-  errorClass: 'popup__error-message_active'
-};
+//import { validationConfig } from './index.js'
 
 class FormValidator {
   constructor(validationConfig, formElement) {
@@ -54,19 +46,19 @@ class FormValidator {
 
 	//функция прослушки ввода и изменения состояния кнопки при вводе
 	_setEventListeners() {
-		const inputList = this._formElement.querySelectorAll(this._inputSelector);
-		const submitButton = this._formElement.querySelector(this._submitButtonSelector);
+		//const _inputList = this._formElement.querySelectorAll(this._inputSelector);
+		//const submitButton = this._formElement.querySelector(this._submitButtonSelector);
 		const isFormValid = this._formElement.checkValidity();
-		this._toggleSubmitButton(submitButton, isFormValid);
-		Array.from(inputList).forEach((inputElement) => {
+		this._toggleSubmitButton(this._submitButton, isFormValid);
+		Array.from(this._inputList).forEach((inputElement) => {
 			inputElement.addEventListener('input', () => {
 				const isFormValid = this._formElement.checkValidity();
 				this._isValid(inputElement);
-				this._toggleSubmitButton(submitButton, isFormValid);
+				this._toggleSubmitButton(this._submitButton, isFormValid);
 			});
 		});
 		this._formElement.addEventListener('reset', () => {
-			this._toggleSubmitButton(submitButton, isFormValid);
+			this._toggleSubmitButton(this._submitButton, false);
 		});
 		};
 
@@ -80,15 +72,15 @@ class FormValidator {
 	}
 
 	//функция изменения состояния кнопки
-	_toggleSubmitButton(submitButton, isActive) {
+	_toggleSubmitButton(_submitButton, isActive) {
 		if (isActive) {
-			submitButton.classList.remove(this._inactiveButtonClass);
-			submitButton.removeAttribute('disabled');
+			this._submitButton.classList.remove(this._inactiveButtonClass);
+			this._submitButton.removeAttribute('disabled');
 		} else {
-			submitButton.classList.add(this._inactiveButtonClass);
-			submitButton.setAttribute('disabled', 'true');
+			this._submitButton.classList.add(this._inactiveButtonClass);
+			this._submitButton.setAttribute('disabled', 'true');
 		}
 	};
 }
 
-export { FormValidator, validationConfig };
+export { FormValidator };

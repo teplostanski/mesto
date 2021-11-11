@@ -1,14 +1,14 @@
-import {onClickByImg} from './index.js'
+//import {onClickByImg} from './index.js'
 
 export class Card {
   constructor(card, onClickByImg, templateSelector) {
-    this.card = card;
-    this.templateSelector = templateSelector;
-    this.onClickByImg = onClickByImg;
+    this._card = card;
+    this._templateSelector = templateSelector;
+    this._onClickByImg = onClickByImg;
   }
 
   _setEventListeners(cardClone, cardCloneImage) {
-    cardCloneImage.addEventListener('click', this.onClickByImg);
+    cardCloneImage.addEventListener('click', () => this._onClickByImg(this._card.link, this._card.name));
 
     cardClone.querySelector('.card__like-button').addEventListener('click', this._onLikeButtonClick);
 
@@ -25,12 +25,12 @@ export class Card {
   }
 
   createCardNode() {
-    const cardTemplate = document.querySelector(this.templateSelector);
-    const cardClone = templateForCard.content.firstElementChild.cloneNode(true);
+    const cardTemplate = document.querySelector(this._templateSelector);
+    const cardClone = cardTemplate.content.firstElementChild.cloneNode(true);
     const cardCloneImage = cardClone.querySelector('.card__img');
-    cardCloneImage.setAttribute('src', this.card.link);
-    cardCloneImage.setAttribute('alt', this.card.alt);
-    cardClone.querySelector('.card__capture').textContent = this.card.name;
+    cardCloneImage.setAttribute('src', this._card.link);
+    cardCloneImage.setAttribute('alt', this._card.alt);
+    cardClone.querySelector('.card__capture').textContent = this._card.name;
 
 
     this._setEventListeners(cardClone, cardCloneImage);
