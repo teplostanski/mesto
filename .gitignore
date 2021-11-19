@@ -1,1 +1,3 @@
 go.sh
+node_modules
+dist 
