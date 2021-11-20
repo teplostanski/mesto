@@ -81,10 +81,30 @@ function formSubmitAddCardHandler(evt) {
 	addCardForm.reset();
 }
 
+
+
+
 // Создать карточки
-function createCard (card) {
-  return (new Card(card,  onClickByImg, '.templateForCard')).createCardNode()
+//function createCard (card) {
+//  return (new Card(card,  onClickByImg, '.templateForCard')).createCardNode()
+//}
+function createCard (item) {
+
+  const card = new Card({
+    data: item,
+    onClickByImg: (evt) => {
+      const popupImg = new PopupWithImage(item, popupImgView);
+      popupImg.open(evt);
+    }
+  },
+  '.templateForCard'
+  );
+  const cardElement = card.createCardNode();
+  return cardElement;
 }
+
+
+
 
 
 // Сбросить поля формы при закрытии
