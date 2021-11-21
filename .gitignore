@@ -1,3 +1,4 @@
 go.sh
 node_modules
-dist 
+dist
+.vscode
