@@ -1,0 +1,38 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "![GitHub last commit (branch)](https://img.shields.io/github/last-commit/r0bomurlok/mesto/main) ![Website](https://img.shields.io/website?color=gold&label=site%2FMESTO&up_color=gree&up_message=online&url=https%3A%2F%2Fr0bomurlok.github.io%2Fmesto%2F)  ![GitHub watchers](https://img.shields.io/github/watchers/r0bomurlok/mesto?style=social)",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r0bomurlok/mesto.git"
+  },
+  "author": "r0bomurlok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/r0bomurlok/mesto/issues"
+  },
+  "homepage": "https://github.com/r0bomurlok/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "autoprefixer": "^10.4.0",
+    "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.5.1",
+    "cssnano": "^5.0.11",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.4.5",
+    "postcss-loader": "^6.2.0",
+    "webpack": "^5.64.2",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0"
+  },
+  "dependencies": {
+    "core-js": "^3.19.1"
+  }
+}

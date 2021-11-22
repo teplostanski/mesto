@@ -1,37 +1,44 @@
+import planet from "../images/planet.jpg";
+import flupiland from "../images/flupiland.jpg";
+import sun from "../images/sun.jpg";
+import sqwonch from "../images/sqwonch.jpg";
+import apocalips from "../images/apocalips.jpg";
+import unity from "../images/unity.jpg";
+
 const initialCards = [
   {
     name: 'Птичий мир',
-    link: './images/planet-bird-man.jpg',
+    link: planet,
     alt: 'Птичий мир'
   },
 
   {
     name: 'Флупилэнд',
-    link: './images/flupiland.jpg',
+    link: flupiland,
     alt: 'Флупилэнд'
   },
 
   {
     name: 'Планета с кричащим солнцем',
-    link: './images/sun.jpg',
+    link: sun,
     alt: 'Планета с кричащим солнцем'
   },
 
   {
     name: 'Планета Сквончи',
-    link: './images/sqwonch.jpg',
+    link: sqwonch,
     alt: 'Планета Сквончи'
   },
 
   {
     name: 'Постапокалиптическая Земля',
-    link: './images/apocalips.jpg',
+    link: apocalips,
     alt: 'Постапокалиптическая Земля'
   },
 
   {
     name: 'Мир Юнити',
-    link: './images/unity.jpg',
+    link: unity,
     alt: 'Мир Юнити'
   },
 ];

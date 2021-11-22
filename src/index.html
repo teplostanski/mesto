@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
-	<link rel="icon" href="./images/icons8.svg" type="image/x-icon">
+  <!--<link rel="stylesheet" href="./pages/index.css">-->
+	<!--<link rel="icon" href="./images/icons8.svg" type="image/x-icon">-->
   <title>Место</title>
 </head>
 <body class="page">
 
 	<!--Шапка-->
   <header class="header">
-   <a href="#"><img class="header__logo" src="./images/header__logo.svg" alt="Логотип"></a>
+   <a href="#"><img class="header__logo" src="<%=require('./images/header__logo.svg')%>" alt="Логотип"></a>
   </header>
 
   <main class="main">
 
 		<!--Профиль-->
     <section class="profile">
-      <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватарка">
+      <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватарка">
       <div class="profile__info">
         <div class="profile__main-info">
           <h1 class="profile__name">Рик Санчез</h1>
@@ -40,7 +40,7 @@
 
 	<!--Подвал-->
   <footer class="footer">
-    <p class="footer__copyright">&copy;2021 r0bomurlok</p>
+    <p class="footer__copyright">&#127279;2021 r0bomurlok</p>
   </footer>
 
 	<!--Шаблон-->
@@ -94,6 +94,6 @@
 			</figure>
 		</div>
 	</div>
-<script type="module" src="scripts/index.js"></script>
+<!--<script type="module" src="scripts/index.js"></script>-->
 </body>
 </html>
