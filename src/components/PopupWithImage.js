@@ -1,22 +1,17 @@
 import { Popup } from './Popup.js'
-const popupImgView = document.querySelector('#popupGallery');
-const imgPopup = popupImgView.querySelector('.popup__img-gallery');
-const titlePopup = popupImgView.querySelector('.popup__figcaption');
 
-class PopupWithImage extends Popup{
-	constructor(data, popupSelector){
-		super(popupSelector)
-		this._name = data.name;
-		this._link = data.link;
+class PopupWithImage extends Popup {
+	constructor(popup) {
+		super(popup);
+		this._imgPopup = this._popupEl.querySelector('.popup__img-gallery');
+		this._titlePopup = this._popupEl.querySelector('.popup__figcaption');
 	}
 
-	open() {
+	open({src, alt}) {
 		super.open();
-		super.setEventListeners();
-		this._popupSelector.classList.add('popup_opened')
-		imgPopup.src = this._link;
-		imgPopup.alt = this._name;
-		titlePopup.textContent = this._name;
+		this._imgPopup.setAttribute('src', src);
+		this._imgPopup.setAttribute('alt', alt);
+		this._titlePopup.textContent = alt;
 	}
 }
 export { PopupWithImage };
