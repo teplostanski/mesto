@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--<link rel="stylesheet" href="./pages/index.css">-->
-	<!--<link rel="icon" href="./images/icons8.svg" type="image/x-icon">-->
   <title>Место</title>
 </head>
 <body class="page">
@@ -21,10 +19,10 @@
       <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватарка">
       <div class="profile__info">
         <div class="profile__main-info">
-          <h1 class="profile__name">Рик Санчез</h1>
+          <h1 class="profile__name"></h1>
           <button type="button" class="profile__edit-button buttons"></button>
         </div>
-        <p class="profile__description">Вабулабудабда</p>
+        <p class="profile__description"></p>
       </div>
       <button type="button" class="profile__add-button buttons"></button>
     </section>
@@ -51,6 +49,7 @@
 			<div class="card__items">
 				<h2 class="card__capture"></h2>
 				<button type="button" class="card__like-button buttons"></button>
+				<p class="card__like-counter">0</p>
 			</div>
 		</li>
 	</template>

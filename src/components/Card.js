@@ -31,8 +31,9 @@ class Card {
     this.element = this._getTemplate();
     const cardNodeImg = this.element.querySelector('.card__img');
     cardNodeImg.setAttribute('src', this._card.link);
-    cardNodeImg.setAttribute('alt', this._card.alt);
+    cardNodeImg.setAttribute('alt', this._card.name);
     this.element.querySelector('.card__capture').textContent = this._card.name;
+		this.element.querySelector(".card__like-counter").textContent = this._card.likes.length;
     this._setEventListeners();
 
     return this.element;

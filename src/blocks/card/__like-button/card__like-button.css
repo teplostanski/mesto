@@ -9,8 +9,6 @@
   border: none;
   padding: 0;
   margin-top: 4px;
-}
-
-.card__like-button:hover {
-  opacity: 0.5;
+  grid-column: 2;
+  grid-row: 1;
 }
