@@ -194,7 +194,7 @@ function formSubmitDeleteConfirmationHandler(cardId, deleteCard) {
     })
 }
 
-const changeAvatarPopup = new PopupWithForm('#popupChangAvatar', formSubmitChangeAvatarHandler);
+const changeAvatarPopup = new PopupWithForm('#popupChangeAvatar', formSubmitChangeAvatarHandler);
 changeAvatarPopup.setEventListeners();
 
 function formSubmitChangeAvatarHandler(data) {
