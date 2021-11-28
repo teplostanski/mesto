@@ -119,13 +119,6 @@ cardFormValidator.enableValidation();
 
 
 const popupGallery = new PopupWithImage('#popupGallery');
-
-//function onClickByImg (evt) {
-//  const newSrc = evt.target.getAttribute('src');
-//  const newAlt = evt.target.getAttribute('alt');
-//  popupGallery.open({src: newSrc, alt: newAlt});
-//}
-
 popupGallery.setEventListeners();
 
 const profilePopup = new PopupWithForm ('#popupEditProfile', formSubmitEditProfileHandler);
@@ -185,7 +178,7 @@ function popupForm() {
 //  userInfo.setUserInfo(data);
 //})
 
-const deleteConfirmatonPopup = new PopupWithConfirmation ('#popup-confirmation', formSubmitDeleteConfirmationHandler);
+const deleteConfirmatonPopup = new PopupWithConfirmation ('#popupConfirmation', formSubmitDeleteConfirmationHandler);
 deleteConfirmatonPopup.setEventListeners();
 
 function formSubmitDeleteConfirmationHandler(cardId, deleteCard) {
@@ -201,7 +194,7 @@ function formSubmitDeleteConfirmationHandler(cardId, deleteCard) {
     })
 }
 
-const changeAvatarPopup = new PopupWithForm('#popup-change-avatar', formSubmitChangeAvatarHandler);
+const changeAvatarPopup = new PopupWithForm('#popupChangAvatar', formSubmitChangeAvatarHandler);
 changeAvatarPopup.setEventListeners();
 
 function formSubmitChangeAvatarHandler(data) {
