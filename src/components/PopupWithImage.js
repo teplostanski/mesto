@@ -8,8 +8,8 @@ class PopupWithImage extends Popup {
 	}
 
 	open({src, alt}) {
-		super.open();
-		this._imgPopup.setAttribute('src', src);
+		super.open();this._imgPopup.setAttribute('src', src);
+		//this._imgPopup.setAttribute('src', src);
 		this._imgPopup.setAttribute('alt', alt);
 		this._titlePopup.textContent = alt;
 	}

@@ -1,9 +1,9 @@
-import planet from "../images/planet.jpg";
-import flupiland from "../images/flupiland.jpg";
-import sun from "../images/sun.jpg";
-import sqwonch from "../images/sqwonch.jpg";
-import apocalips from "../images/apocalips.jpg";
-import unity from "../images/unity.jpg";
+import planet from '../images/planet.jpg';
+import flupiland from '../images/flupiland.jpg';
+import sun from '../images/sun.jpg';
+import sqwonch from '../images/sqwonch.jpg';
+import apocalips from '../images/apocalips.jpg';
+import unity from '../images/unity.jpg';
 
 const initialCards = [
   {

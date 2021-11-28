@@ -5,8 +5,8 @@ class Section {
 		this._containerSelector = document.querySelector(containerSelector);
 	}
 
-	renderItems() {
-		this._items.forEach(item => {
+	renderItems(extraItems) {
+		this._items.concat(extraItems).forEach(item => {
 			this._containerSelector.append(this._renderer(item));
 		});
 	}
