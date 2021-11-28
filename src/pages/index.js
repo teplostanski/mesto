@@ -14,7 +14,7 @@ import { PopupWithConfirmation } from '../components/PopupWithConfirmation';
 const editButton = document.querySelector('.profile__edit-button');
 const popupEditForm = document.querySelector('.popup__form');
 const nameInput = popupEditForm.querySelector("input[name='name']");
-const descriptionInput = popupEditForm.querySelector("input[name='description']");
+const descriptionInput = popupEditForm.querySelector("input[name='about']");
 const popupAddCard = document.querySelector('#popupPlace');
 const addButton = document.querySelector('.profile__add-button');
 const addCardForm = popupAddCard.querySelector('.popup__form');
@@ -130,9 +130,9 @@ popupGallery.setEventListeners();
 
 const profilePopup = new PopupWithForm ('#popupEditProfile', formSubmitEditProfileHandler);
 const userInfo = new UserInfo({
-  nameSelector: '.profile__name',
-  descriptionSelector: '.profile__description',
-	avatarSelector: '.profile__avatar'
+  nameSelector: ".profile__name",
+  aboutSelector: ".profile__description",
+  avatarSelector: ".profile__avatar"
 })
 
 //function formSubmitEditProfileHandler ({ name, description }) {
@@ -164,7 +164,7 @@ profilePopup.setEventListeners();
 function setPopupProfile() {
   const userData = userInfo.getUserInfo();
   nameInput.value = userData.name;
-  descriptionInput.value = userData.description;
+  descriptionInput.value = userData.about;
 	//profileFormValidator.setInitialFormState();
 }
 
