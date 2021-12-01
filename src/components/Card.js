@@ -1,25 +1,20 @@
 class Card {
-  //constructor(card, onClickByImg, templateSelector, userId, onDeleteCard) {
-		constructor(card, templateSelector, userId, { onClickByImg, handleCardDelete, handleCardLike }) {
+  constructor(card, templateSelector, userId, { handleCardClick, handleCardDelete, handleCardLike }) {
     this._card = card;
     this._templateSelector = templateSelector;
-    this._onClickByImg = onClickByImg;
-		this._userId = userId;
-		//this._onDeleteCard = onDeleteCard;
-		this._handleCardDelete = handleCardDelete;
+    this._userId = userId;
+    this._handleCardClick = handleCardClick;
+    this._handleCardDelete = handleCardDelete;
     this._handleCardLike = handleCardLike;
   }
 
   _setEventListeners() {
     const cardNodeImg = this.element.querySelector('.card__img');
-    cardNodeImg.addEventListener('click', this._onClickByImg);
+    cardNodeImg.addEventListener('click', this._handleCardClick);
     this.element.querySelector('.card__like-button').addEventListener('click', this._onLikeButtonClick.bind(this));
     this.element.querySelector('.card__delete-button').addEventListener('click', this._onDeleteButtonClick.bind(this));
   }
 
-  //_onLikeButtonClick(evt) {
-  //  evt.target.classList.toggle('card__like-button_active');
-  //}
 	_onLikeButtonClick() {
     const renderLike = (data) => {
       this._updateLikes(data.likes);
@@ -35,7 +30,6 @@ class Card {
 
 	_updateLikes(likeOwners) {
     this.element.querySelector('.card__like-counter').textContent = likeOwners.length;
-
     const hasMyLike = likeOwners.find((owner) => owner._id === this._userId);
     const likeButton = this.element.querySelector('.card__like-button');
 
