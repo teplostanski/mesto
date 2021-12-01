@@ -94,7 +94,7 @@ Promise.all([api.getInitialCards(), api.getUserInfo()])
 
 
 
-function newImgCard ({ place, url }) {
+function createNewCard ({ place, url }) {
   const data = {
     name: place,
     link: url,
@@ -166,7 +166,7 @@ function popupProfile() {
   setPopupProfile();
 }
 
-const addCardPopup = new PopupWithForm ('#popupPlace', newImgCard);
+const addCardPopup = new PopupWithForm ('#popupPlace', createNewCard);
 
 
 function popupForm() {
