@@ -44,8 +44,6 @@ class FormValidator {
 
 	//функция прослушки ввода и изменения состояния кнопки при вводе
 	_setEventListeners() {
-		//const _inputList = this._formElement.querySelectorAll(this._inputSelector);
-		//const submitButton = this._formElement.querySelector(this._submitButtonSelector);
 		const isFormValid = this._formElement.checkValidity();
 		this._toggleSubmitButton(this._submitButton, isFormValid);
 		Array.from(this._inputList).forEach((inputElement) => {

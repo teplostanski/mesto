@@ -6,8 +6,7 @@ import { Section } from '../components/Section.js';
 import { UserInfo } from '../components/UserInfo.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
 import { validationConfig } from '../utils/constants.js';
-//import { Api } from '../components/Api.js';
-import api from "../components/Api.js"
+import { Api } from '../components/Api.js';
 import { PopupWithConfirmation } from '../components/PopupWithConfirmation';
 
 const editButton = document.querySelector('.profile__edit-button');
@@ -19,22 +18,15 @@ const addButton = document.querySelector('.profile__add-button');
 const addCardForm = popupAddCard.querySelector('.popup__form');
 const changeAvatarButton = document.querySelector('.profile__img-wrapper');
 
-//const api = new Api({
-//	baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-30',
-//	headers: {
-//		authorization: '824c1506-61a7-48e4-8b2f-cd5fe1a7a429',
-//		'Content-Type': 'application/json'
-//	}
-//});
+const api = new Api({
+	baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-30',
+	headers: {
+		authorization: '824c1506-61a7-48e4-8b2f-cd5fe1a7a429',
+		'Content-Type': 'application/json'
+	}
+});
 
 function createCard (card) {
-  //return (new Card(card,  onClickByImg, '.templateForCard', userInfo.getUserId())).createCardNode();
-	//return (new Card(card,
-	//	onClickByImg,
-	//	'.templateForCard',
-	//	userInfo.getUserId(),
-	//	onDeleteCard
-	//	)).createCardNode();
 	const userId = userInfo.getUserInfo()._id;
 	return new Card(
     card,
@@ -73,16 +65,6 @@ const cardsSection = new Section ({
   renderer: createCard
 }, '.cards');
 
-
-//api.getInitialCards()
-//.then((data) => {
-//Promise.all([api.getInitialCards(), api.getUserInfo()])
-//  .then(([cards, user]) => {
-//	userInfo.setUserInfo(user);
-//	userInfo.render();
-//  cardsSection.renderItems(cards);
-//	})
-//	.catch(handleError);
 Promise.all([api.getInitialCards(), api.getUserInfo()])
   .then(([cards, user]) => {
     userInfo.setUserInfo(user);
@@ -90,8 +72,6 @@ Promise.all([api.getInitialCards(), api.getUserInfo()])
     cardsSection.renderItems(cards);
   })
   .catch(handleError);
-
-
 
 function createNewCard ({ place, url }) {
   const data = {
@@ -101,7 +81,6 @@ function createNewCard ({ place, url }) {
 	addCardPopup.disableSubmit();
   api.addNewCard(data)
     .then((card) => {
-      //const cardsSection = new Section ({}, '.cards');
       cardsSection.addItem(createCard(card));
       addCardPopup.close();
     })
@@ -116,25 +95,15 @@ profileFormValidator.enableValidation();
 const cardFormValidator = new FormValidator(validationConfig, addCardForm);
 cardFormValidator.enableValidation();
 
-
 const popupGallery = new PopupWithImage('#popupGallery');
 popupGallery.setEventListeners();
 
 const profilePopup = new PopupWithForm ('#popupEditProfile', formSubmitEditProfileHandler);
 const userInfo = new UserInfo({
-  nameSelector: ".profile__name",
-  aboutSelector: ".profile__description",
-  avatarSelector: ".profile__avatar"
+  nameSelector: '.profile__name',
+  aboutSelector: '.profile__description',
+  avatarSelector: '.profile__avatar'
 })
-
-//function formSubmitEditProfileHandler ({ name, description }) {
-//  userInfo.setUserInfo({
-//    name,
-//    description,
-//    avatar: userInfo.getUserInfo().avatar
-//  });
-//  profilePopup.close();
-//}
 
 function formSubmitEditProfileHandler (data) {
 	profilePopup.disableSubmit();
@@ -157,7 +126,6 @@ function setPopupProfile() {
   const userData = userInfo.getUserInfo();
   nameInput.value = userData.name;
   descriptionInput.value = userData.about;
-	//profileFormValidator.setInitialFormState();
 }
 
 function popupProfile() {
@@ -171,11 +139,6 @@ const addCardPopup = new PopupWithForm ('#popupPlace', createNewCard);
 function popupForm() {
   addCardPopup.open();
 }
-
-//api.getUserInfo()
-//.then((data) => {
-//  userInfo.setUserInfo(data);
-//})
 
 const deleteConfirmatonPopup = new PopupWithConfirmation ('#popupConfirmation', formSubmitDeleteConfirmationHandler);
 deleteConfirmatonPopup.setEventListeners();
@@ -217,10 +180,6 @@ function onClickChangeAvatarButton() {
 function handleError(err) {
   console.log(err);
 }
-////Function for opening popup
-//function onDeleteCard(cardId, deleteCard) {
-//  deleteConfirmatonPopup.open(cardId, deleteCard);
-//}
 
 addCardPopup.setEventListeners();
 
