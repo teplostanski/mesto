@@ -55,7 +55,7 @@ _showError(inputElement, errorMessage) {
 
 	//функция валидации форм
 	enableValidation() {
-		this._formElement.addEventListener('submit', function (evt) {
+		this._form.addEventListener('submit', function (evt) {
 			evt.preventDefault();
 		});
 		this._setEventListeners();
