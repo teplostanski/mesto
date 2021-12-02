@@ -72,12 +72,13 @@ _showError(inputElement, errorMessage) {
 
 	_disableButton() {
     this._submitButton.classList.add(this._validationConfig.inactiveButtonClass);
-    this._submitButton.setAttribute('disabled', 'disabled');
+		this._submitButton.disabled = true;
   }
 
   _enableButton() {
     this._submitButton.classList.remove(this._validationConfig.inactiveButtonClass);
-    this._submitButton.removeAttribute('disabled');
+		this._submitButton.disabled = false;
+
   }
 
   setInitialFormState() {
@@ -86,13 +87,6 @@ _showError(inputElement, errorMessage) {
     })
     this._toggleSubmitButton();
   }
-
-  enableValidation() {
-    this._form.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-    });
-    this._setEventListeners();
-  };
 }
 
 export { FormValidator };
