@@ -90,10 +90,14 @@ function createNewCard ({ place, url }) {
     })
 }
 
-const profileFormValidator = new FormValidator(validationConfig, popupEditForm);
+const profileFormValidator = new FormValidator(validationConfig, "form[name = 'profile']");
 profileFormValidator.enableValidation();
-const cardFormValidator = new FormValidator(validationConfig, addCardForm);
+
+const cardFormValidator = new FormValidator(validationConfig, "form[name = 'addCard']");
 cardFormValidator.enableValidation();
+
+const changeAvatarFormValidator = new FormValidator(validationConfig, "form[name = 'changeAvatar']");
+changeAvatarFormValidator.enableValidation();
 
 const popupGallery = new PopupWithImage('#popupGallery');
 popupGallery.setEventListeners();
@@ -126,6 +130,7 @@ function setPopupProfile() {
   const userData = userInfo.getUserInfo();
   nameInput.value = userData.name;
   descriptionInput.value = userData.about;
+	profileFormValidator.setInitialFormState();
 }
 
 function popupProfile() {
@@ -138,6 +143,7 @@ const addCardPopup = new PopupWithForm ('#popupPlace', createNewCard);
 
 function popupForm() {
   addCardPopup.open();
+	cardFormValidator.setInitialFormState();
 }
 
 const deleteConfirmatonPopup = new PopupWithConfirmation ('#popupConfirmation', formSubmitDeleteConfirmationHandler);
@@ -175,6 +181,7 @@ function formSubmitChangeAvatarHandler(data) {
 
 function onClickChangeAvatarButton() {
   changeAvatarPopup.open();
+	changeAvatarFormValidator.setInitialFormState();
 }
 
 function handleError(err) {
