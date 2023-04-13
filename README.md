@@ -1,6 +1,6 @@
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/r0bomurlok/mesto/main)
-![Website](https://img.shields.io/website?color=gold&label=r0bomurlok.github.io/mesto&up_color=green&up_message=online&url=https%3A%2F%2Fr0bomurlok.github.io%2Fmesto%2F)
-![GitHub watchers](https://img.shields.io/github/watchers/r0bomurlok/mesto?style=social)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/teplostanski/mesto/main)
+![Website](https://img.shields.io/website?color=gold&label=teplostanski.github.io/mesto&up_color=green&up_message=online&url=https%3A%2F%2Fteplostanski.github.io%2Fmesto%2F)
+![GitHub watchers](https://img.shields.io/github/watchers/teplostanski/mesto?style=social)
 
 # Проект: Место
 
@@ -21,7 +21,7 @@
 
 ---
 
-### *Посмотреть проект на GitHub Pages: https://r0bomurlok.github.io/mesto*
+### *Посмотреть проект на GitHub Pages: https://teplostanski.github.io/mesto*
 
 ### *Проект раелизован по макету из [Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)*
 
